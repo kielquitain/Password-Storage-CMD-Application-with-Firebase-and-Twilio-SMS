@@ -86,9 +86,9 @@ def deletePassword():
 def sendSMS():
     result = firebase.get('/password-management-syst-60298/Person', '')
     # Your Account SID from twilio.com/console
-    account_sid = "ACbc5c407a193004eae5729ee315edcf72"
+    account_sid = ""
     # Your Auth Token from twilio.com/console
-    auth_token  = "37d489d5bab76d210b54e920cccd1b11"
+    auth_token  = ""
 
     client = Client(account_sid, auth_token)
 
@@ -102,7 +102,7 @@ def sendSMS():
         if result[dataList[i]]['Name'] == name:
             text = str(result[dataList[i]]['Password'])
             client.messages.create(
-                to="+639751287751", 
+                to="insert_phone_num", 
                 from_="+12057758507",
                 body= "Password is: " + text)
         else:
